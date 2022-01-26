@@ -16,36 +16,72 @@
         <div class="calculatoer">
             <div class="calculator-monitor">0</div>
             <div class="calculator-buttons-one">
-                <button class="clearentry">CE</button>
-                <button class="clear">C</button>
-                <button class="backspace">&gt;-</button>
-                <button class="division">/</button>
+                <button class="clearentry" id="clearentry" value="clearentry">CE</button>
+                <button class="clear" id="clear" value="clear">C</button>
+                <button class="backspace" id="backspace" value="backspace">&lt;ㅡ</button>
+                <button class="division" id="division" value="division">/</button>
             </div>
             <div class="calculator-buttons-two">
-                <button class="seven">7</button>
-                <button class="eight">8</button>
-                <button class="nine">9</button>
-                <button class="multiplication">*</button>
+                <button class="seven" id="seven" value="7">7</button>
+                <button class="eight" id="eight" value="8">8</button>
+                <button class="nine" id="nine" value="9">9</button>
+                <button class="multiplication" id="multiplication" value="multiplication">*</button>
             </div>
             <div class="calculator-buttons-three">
-                <button class="four">4</button>
-                <button class="five">5</button>
-                <button class="six">6</button>
-                <button class="subtraction">-</button>
+                <button class="four" id="four" value="4">4</button>
+                <button class="five" id="five" value="5">5</button>
+                <button class="six" id="six" value="6">6</button>
+                <button class="subtraction" id="subtraction" value="subtraction">-</button>
             </div>
             <div class="calculator-buttons-four">
-                <button class="one">1</button>
-                <button class="two">2</button>
-                <button class="three">3</button>
-                <button class="addition">+</button>
+                <button class="one" id="one" value="1">1</button>
+                <button class="two" id="two" value="2">2</button>
+                <button class="three" id="three" value="3">3</button>
+                <button class="addition" id="addition" value="addition">+</button>
             </div>
             <div class="calculator-buttons-five">
-                <button class=""></button>
-                <button class="zero">0</button>
-                <button class="point">.</button>
-                <button class="equals">=</button>
+                <button class="" id="" value=""></button>
+                <button class="zero" id="zero" value="0">0</button>
+                <button class="point" id="point" value=".">.</button>
+                <button class="equals" id="equals" value="equals">=</button>
             </div>
         </div>
     </div>
+
+    <input type='button'
+       onclick='count("plus")'
+       value='+'/>
+<input type='button'
+       onclick='count("minus")'
+       value='-'/>
+<div id='result'>0</div>
+
 </body>
+<script>
+$(function() {
+    const monitor = document.getElementById('calculator-monitor')
+    let mon = monitor.innerText
+    
+})
+
+
+
+function count(type)  {
+  // 결과를 표시할 element
+  const resultElement = document.getElementById('result');
+  
+  // 현재 화면에 표시된 값
+  let number = resultElement.innerText;
+  
+  // 더하기/빼기
+  if(type === 'plus') {
+    number = parseInt(number) + 1;
+  }else if(type === 'minus')  {
+    number = parseInt(number) - 1;
+  }
+  
+  // 결과 출력
+  resultElement.innerText = number;
+}
+</script>
 </html>
