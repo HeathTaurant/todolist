@@ -14,74 +14,49 @@
     
     <div class="container">
         <div class="calculatoer">
-            <div class="calculator-monitor">0</div>
-            <div class="calculator-buttons-one">
+            <div class="monitor" id="monitor"></div>
+            <div class="buttons-one">
                 <button class="clearentry" id="clearentry" value="clearentry">CE</button>
                 <button class="clear" id="clear" value="clear">C</button>
                 <button class="backspace" id="backspace" value="backspace">&lt;ㅡ</button>
                 <button class="division" id="division" value="division">/</button>
             </div>
-            <div class="calculator-buttons-two">
-                <button class="seven" id="seven" value="7">7</button>
-                <button class="eight" id="eight" value="8">8</button>
-                <button class="nine" id="nine" value="9">9</button>
+            <div class="buttons-two">
+                <button class="seven" id="seven" value="7" onclick="clickNumber(this.value)">7</button>
+                <button class="eight" id="eight" value="8" onclick="clickNumber(this.value)">8</button>
+                <button class="nine" id="nine" value="9" onclick="clickNumber(this.value)">9</button>
                 <button class="multiplication" id="multiplication" value="multiplication">*</button>
             </div>
-            <div class="calculator-buttons-three">
-                <button class="four" id="four" value="4">4</button>
-                <button class="five" id="five" value="5">5</button>
-                <button class="six" id="six" value="6">6</button>
+            <div class="buttons-three">
+                <button class="four" id="four" value="4" onclick="clickNumber(this.value)">4</button>
+                <button class="five" id="five" value="5" onclick="clickNumber(this.value)">5</button>
+                <button class="six" id="six" value="6" onclick="clickNumber(this.value)">6</button>
                 <button class="subtraction" id="subtraction" value="subtraction">-</button>
             </div>
-            <div class="calculator-buttons-four">
-                <button class="one" id="one" value="1">1</button>
-                <button class="two" id="two" value="2">2</button>
-                <button class="three" id="three" value="3">3</button>
+            <div class="buttons-four">
+                <button class="one" id="one" value="1" onclick="clickNumber(this.value)">1</button>
+                <button class="two" id="two" value="2" onclick="clickNumber(this.value)">2</button>
+                <button class="three" id="three" value="3" onclick="clickNumber(this.value)">3</button>
                 <button class="addition" id="addition" value="addition">+</button>
             </div>
-            <div class="calculator-buttons-five">
+            <div class="buttons-five">
                 <button class="" id="" value=""></button>
-                <button class="zero" id="zero" value="0">0</button>
-                <button class="point" id="point" value=".">.</button>
+                <button class="zero" id="zero" value="0" onclick="clickNumber(this.value)">0</button>
+                <button class="point" id="point" value="." onclick="clickNumber(this.value)">.</button>
                 <button class="equals" id="equals" value="equals">=</button>
             </div>
         </div>
     </div>
 
-    <input type='button'
-       onclick='count("plus")'
-       value='+'/>
-<input type='button'
-       onclick='count("minus")'
-       value='-'/>
-<div id='result'>0</div>
-
 </body>
 <script>
-$(function() {
-    const monitor = document.getElementById('calculator-monitor')
+function clickNumber(nValue) {
+    const monitor = document.getElementById('monitor')
     let mon = monitor.innerText
-    
-})
-
-
-
-function count(type)  {
-  // 결과를 표시할 element
-  const resultElement = document.getElementById('result');
-  
-  // 현재 화면에 표시된 값
-  let number = resultElement.innerText;
-  
-  // 더하기/빼기
-  if(type === 'plus') {
-    number = parseInt(number) + 1;
-  }else if(type === 'minus')  {
-    number = parseInt(number) - 1;
-  }
-  
-  // 결과 출력
-  resultElement.innerText = number;
+    mon = mon + nValue
+    monitor.innerText = mon
+    console.log(mon);
 }
+
 </script>
 </html>

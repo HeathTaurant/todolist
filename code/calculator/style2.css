@@ -12,41 +12,41 @@
     
 }
 
-.calculator-monitor{
+.monitor{
     width:100%;
     height:16%;
     border: solid 2px blue;
 }
 
-.calculator-buttons-one{
+.buttons-one{
     width:100%;
     height:16%;
     border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
-.calculator-buttons-two{
+.buttons-two{
     width:100%;
     height:16%;
     border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
-.calculator-buttons-three{
+.buttons-three{
     width:100%;
     height:16%;
     border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
-.calculator-buttons-four{
+.buttons-four{
     width:100%;
     height:16%;
     border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
-.calculator-buttons-five{
+.buttons-five{
     width:100%;
     height:16%;
     border: solid 2px blue;
