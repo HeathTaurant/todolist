@@ -68,22 +68,42 @@ function monitorClear() {
 }
 
 function clickEquals() {
+    debugger
     const monitor = document.getElementById('monitor')
+    let monitorSplitPlus
+    let monitorSplitMinus
+    let monitorSplitDivided
+    let monitorSplitTimes
     let monitorText  = monitor.innerText
-    let monarray = monitorText .toString().split("+")
-    let calmon = 0
-    console.log(monarray)
-    for(var i = 0; i < monarray.length; i++){
-        
-        if(!isNaN(monarray(i))){
-            calmon = calmon + monarray(i)
-            console.log(calmon) 
-        }else{  
-            
+    let monitorTextTranc = monitorText.replace(/-/g,"+-")
+    let calculatingNo = 0
+    let calculatingTimes = 1
+    let calculatingDivided = 1
+    monitorSplitPlus = monitorTextTranc.toString().split("+")
+
+    console.log(monitorSplitPlus)
+    for(var i = 0; i < monitorSplitPlus.length; i++){
+        monitorSplitDivided = monitorSplitPlus[i].toString().split("/")
+        if(!isNaN(monitorSplitPlus[i])){
+            calculatingNo = Number(calculatingNo) + Number(monitorSplitPlus[i]) 
+        } else if (monitorSplitDivided.length = 1){
+            monitorSplitTimes = monitorSplitDivided[0].toString().split("*")
+            for(var y = 0; y < monitorSplitTimes.length; y++){
+                calculatingTimes = calculatingTimes*monitorSplitTimes[y]
+            }
+        } else {
+            let array = monitorSplitPlus[i].replace(/\//g,"*/")
+            array = array.toString().split("*")
+            for (var x = 0; x <array.length; x++){
+                if(isNaN(array[i])){
+                    array[i] = array[i].substring(1)
+                    array[i] = 1/array[i]
+                }
+                calculatingDivided = calculatingDivided*array[i]
+            }
         }
-
-
     }
+    monitor.innerText = calculatingNo + calculatingTimes + calculatingDivided
 }
 
 </script>
