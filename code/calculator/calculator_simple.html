@@ -50,34 +50,46 @@
 
 </body>
 <script>
+window.addEventListener("keydown", (e) => {
+    const key = e.key
+    console.log(key)
+    if(!isNaN(key)){
+        clickNumber(key)
+    }else if(key=="+"||key=="-"||key=="*"||key=="/"){
+        clickOper(key) 
+    }else if (key == "Enter"){
+        clickEquals()
+    }
+})
+
 let firstNo = 0
 let secondNo = 0
-let aOper = null
+let operator = null
 const monitor = document.getElementById('monitor')
-let mon = monitor.innerText
+let monitorText  = monitor.innerText
 
 function clickOper(oValue) {
-    aOper = oValue
-    mon = ""
+    operator = oValue
+    monitorText  = ""
 }
 
 function clickNumber(nValue) {
-    if (mon == 0) {
-        mon = ""
+    if (monitorText  == 0) {
+        monitorText  = ""
     }
-    mon = mon + nValue
-    monitor.innerText = mon
-    if(aOper == null) {
-        firstNo = Number(mon)
+    monitorText  = monitorText  + nValue
+    monitor.innerText = monitorText 
+    if(operator == null) {
+        firstNo = Number(monitorText )
     } else {
-        secondNo = Number(mon)
+        secondNo = Number(monitorText )
     }
-    console.log(mon);
+    console.log(monitorText );
 }
 
 function clickEquals() {
     let finalmon = 0
-    switch(aOper){
+    switch(operator){
         case "+":
             finalmon = firstNo + secondNo
             break
@@ -94,18 +106,14 @@ function clickEquals() {
     monitor.innerText = finalmon
     firstNo = 0
     secondNo = 0
-    aOper = null
-    mon = 0
+    operator = null
+    monitorText  = 0
 }
 function monitorClear() {
     const monitor = document.getElementById('monitor')
     monitor.innerText = 0
     console.log(monitor)
 }
-
-
-
-
-    
+  
 </script>
 </html>

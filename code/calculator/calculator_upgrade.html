@@ -52,13 +52,13 @@
 <script>
 function clickNumber(nValue) {
     const monitor = document.getElementById('monitor')
-    let mon = monitor.innerText
-    if (mon == 0) {
-        mon = ""
+    let monitorText  = monitor.innerText
+    if (monitorText  == 0) {
+        monitorText  = ""
     }
-    mon = mon + nValue
-    monitor.innerText = mon
-    console.log(mon);
+    monitorText  = monitorText  + nValue
+    monitor.innerText = monitorText 
+    console.log(monitorText );
 }
 
 function monitorClear() {
@@ -69,8 +69,8 @@ function monitorClear() {
 
 function clickEquals() {
     const monitor = document.getElementById('monitor')
-    let mon = monitor.innerText
-    let monarray = mon.toString().split("+")
+    let monitorText  = monitor.innerText
+    let monarray = monitorText .toString().split("+")
     let calmon = 0
     console.log(monarray)
     for(var i = 0; i < monarray.length; i++){
@@ -78,7 +78,7 @@ function clickEquals() {
         if(!isNaN(monarray(i))){
             calmon = calmon + monarray(i)
             console.log(calmon) 
-        }else{
+        }else{  
             
         }
 
