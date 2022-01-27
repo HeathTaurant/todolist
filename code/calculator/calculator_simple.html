@@ -53,7 +53,7 @@
 window.addEventListener("keydown", (e) => {
     const key = e.key
     console.log(key)
-    if(!isNaN(key)){
+    if(!isNaN(key) || key == "."){
         clickNumber(key)
     }else if(key=="+"||key=="-"||key=="*"||key=="/"){
         clickOper(key) 
