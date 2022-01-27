@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' type='text/css' media='screen' href='style2.css'>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="calculatoer">
+            <div class="monitor" id="monitor">0</div>
+            <div class="buttons-one">
+                <button class="clearentry" id="clearentry" value="clearentry"></button>
+                <button class="clear" id="clear" value="clear" onclick="monitorClear()">C</button>
+                <button class="backspace" id="backspace" value="backspace"></button>
+                <button class="division" id="division" value="/" onclick="clickOper(this.value)">/</button>
+            </div>
+            <div class="buttons-two">
+                <button class="seven" id="seven" value="7" onclick="clickNumber(this.value)">7</button>
+                <button class="eight" id="eight" value="8" onclick="clickNumber(this.value)">8</button>
+                <button class="nine" id="nine" value="9" onclick="clickNumber(this.value)">9</button>
+                <button class="multiplication" id="multiplication" value="*" onclick="clickOper(this.value)">*</button>
+            </div>
+            <div class="buttons-three">
+                <button class="four" id="four" value="4" onclick="clickNumber(this.value)">4</button>
+                <button class="five" id="five" value="5" onclick="clickNumber(this.value)">5</button>
+                <button class="six" id="six" value="6" onclick="clickNumber(this.value)">6</button>
+                <button class="subtraction" id="subtraction" value="-" onclick="clickOper(this.value)">-</button>
+            </div>
+            <div class="buttons-four">
+                <button class="one" id="one" value="1" onclick="clickNumber(this.value)">1</button>
+                <button class="two" id="two" value="2" onclick="clickNumber(this.value)">2</button>
+                <button class="three" id="three" value="3" onclick="clickNumber(this.value)">3</button>
+                <button class="addition" id="addition" value="+" onclick="clickOper(this.value)">+</button>
+            </div>
+            <div class="buttons-five">
+                <button class="" id="" value=""></button>
+                <button class="zero" id="zero" value="0" onclick="clickNumber(this.value)">0</button>
+                <button class="point" id="point" value="." onclick="clickNumber(this.value)">.</button>
+                <button class="equals" id="equals" value="equals" onclick="clickEquals()">=</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+let firstNo = 0
+let secondNo = 0
+let aOper = null
+const monitor = document.getElementById('monitor')
+let mon = monitor.innerText
+
+function clickOper(oValue) {
+    aOper = oValue
+    mon = ""
+}
+
+function clickNumber(nValue) {
+    if (mon == 0) {
+        mon = ""
+    }
+    mon = mon + nValue
+    monitor.innerText = mon
+    if(aOper == null) {
+        firstNo = Number(mon)
+    } else {
+        secondNo = Number(mon)
+    }
+    console.log(mon);
+}
+
+function clickEquals() {
+    let finalmon = 0
+    switch(aOper){
+        case "+":
+            finalmon = firstNo + secondNo
+            break
+        case "-":
+            finalmon = firstNo - secondNo
+            break
+        case "*":
+            finalmon = firstNo * secondNo
+            break
+        case "/":
+            finalmon = firstNo / secondNo
+            break
+    }
+    monitor.innerText = finalmon
+    firstNo = 0
+    secondNo = 0
+    aOper = null
+    mon = 0
+}
+function monitorClear() {
+    const monitor = document.getElementById('monitor')
+    monitor.innerText = 0
+    console.log(monitor)
+}
+
+
+
+
+    
+</script>
+</html>

@@ -14,36 +14,36 @@
     
     <div class="container">
         <div class="calculatoer">
-            <div class="monitor" id="monitor"></div>
+            <div class="monitor" id="monitor">0</div>
             <div class="buttons-one">
                 <button class="clearentry" id="clearentry" value="clearentry">CE</button>
-                <button class="clear" id="clear" value="clear">C</button>
+                <button class="clear" id="clear" value="clear" onclick="monitorClear()">C</button>
                 <button class="backspace" id="backspace" value="backspace">&lt;ㅡ</button>
-                <button class="division" id="division" value="division">/</button>
+                <button class="division" id="division" value="/" onclick="clickNumber(this.value)">/</button>
             </div>
             <div class="buttons-two">
                 <button class="seven" id="seven" value="7" onclick="clickNumber(this.value)">7</button>
                 <button class="eight" id="eight" value="8" onclick="clickNumber(this.value)">8</button>
                 <button class="nine" id="nine" value="9" onclick="clickNumber(this.value)">9</button>
-                <button class="multiplication" id="multiplication" value="multiplication">*</button>
+                <button class="multiplication" id="multiplication" value="*" onclick="clickNumber(this.value)">*</button>
             </div>
             <div class="buttons-three">
                 <button class="four" id="four" value="4" onclick="clickNumber(this.value)">4</button>
                 <button class="five" id="five" value="5" onclick="clickNumber(this.value)">5</button>
                 <button class="six" id="six" value="6" onclick="clickNumber(this.value)">6</button>
-                <button class="subtraction" id="subtraction" value="subtraction">-</button>
+                <button class="subtraction" id="subtraction" value="-" onclick="clickNumber(this.value)">-</button>
             </div>
             <div class="buttons-four">
                 <button class="one" id="one" value="1" onclick="clickNumber(this.value)">1</button>
                 <button class="two" id="two" value="2" onclick="clickNumber(this.value)">2</button>
                 <button class="three" id="three" value="3" onclick="clickNumber(this.value)">3</button>
-                <button class="addition" id="addition" value="addition">+</button>
+                <button class="addition" id="addition" value="+" onclick="clickNumber(this.value)">+</button>
             </div>
             <div class="buttons-five">
                 <button class="" id="" value=""></button>
                 <button class="zero" id="zero" value="0" onclick="clickNumber(this.value)">0</button>
                 <button class="point" id="point" value="." onclick="clickNumber(this.value)">.</button>
-                <button class="equals" id="equals" value="equals">=</button>
+                <button class="equals" id="equals" value="equals" onclick="clickEquals()">=</button>
             </div>
         </div>
     </div>
@@ -53,9 +53,37 @@
 function clickNumber(nValue) {
     const monitor = document.getElementById('monitor')
     let mon = monitor.innerText
+    if (mon == 0) {
+        mon = ""
+    }
     mon = mon + nValue
     monitor.innerText = mon
     console.log(mon);
+}
+
+function monitorClear() {
+    const monitor = document.getElementById('monitor')
+    monitor.innerText = 0
+    console.log(monitor)
+}
+
+function clickEquals() {
+    const monitor = document.getElementById('monitor')
+    let mon = monitor.innerText
+    let monarray = mon.toString().split("+")
+    let calmon = 0
+    console.log(monarray)
+    for(var i = 0; i < monarray.length; i++){
+        
+        if(!isNaN(monarray(i))){
+            calmon = calmon + monarray(i)
+            console.log(calmon) 
+        }else{
+            
+        }
+
+
+    }
 }
 
 </script>

@@ -10,12 +10,17 @@
     height:50%;
     border: solid 3px purple;
     
+    
 }
 
 .monitor{
     width:100%;
     height:16%;
     border: solid 2px blue;
+    font-size: 3rem;
+    text-align: right;
+    
+    
 }
 
 .buttons-one{
@@ -57,4 +62,5 @@
 button {
     height:100%;
     flex: 1;
+    font-size: 2rem;
 }
