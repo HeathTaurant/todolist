@@ -64,7 +64,7 @@ function remove(itemsIndex) {
   display: flex;
 }
 
-.todo-list .todo-items{
+.todo-list .todo-items {
   margin-top: 8px;
   display: flex;
   flex-direction: column;
