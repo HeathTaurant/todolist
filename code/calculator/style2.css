@@ -6,17 +6,13 @@
 }
 
 .calculatoer{
-    width:50%;
-    height:50%;
-    border: solid 3px purple;
-    
-    
+    width:25%;
+    height:50%;  
 }
 
 .monitor{
     width:100%;
     height:16%;
-    border: solid 2px blue;
     font-size: 3rem;
     text-align: right;
     
@@ -26,35 +22,30 @@
 .buttons-one{
     width:100%;
     height:16%;
-    border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
 .buttons-two{
     width:100%;
     height:16%;
-    border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
 .buttons-three{
     width:100%;
     height:16%;
-    border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
 .buttons-four{
     width:100%;
     height:16%;
-    border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
 .buttons-five{
     width:100%;
     height:16%;
-    border: solid 2px blue;
     justify-content: space-evenly;
     display:flex;
 }
@@ -63,4 +54,13 @@ button {
     height:100%;
     flex: 1;
     font-size: 2rem;
+    background-color: #FF5C8D;
+    border: solid 2px #FFFFFF;
+    color:#FFFFFF;
+    font-weight: bolder; 
+}
+.monitor{
+    font-weight: bolder;
+    background-color: #a00037;
+    color:#FFFFFF;
 }

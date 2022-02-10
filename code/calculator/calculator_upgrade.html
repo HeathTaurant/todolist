@@ -16,34 +16,34 @@
         <div class="calculatoer">
             <div class="monitor" id="monitor">0</div>
             <div class="buttons-one">
-                <button class="clearentry" id="clearentry" value="clearentry">CE</button>
-                <button class="clear" id="clear" value="clear" onclick="monitorClear()">C</button>
-                <button class="backspace" id="backspace" value="backspace" onclick="clickBackspace()">&lt;ㅡ</button>
-                <button class="division" id="division" value="/" onclick="clickNumber(this.value)">/</button>
+                <button class="operator clearentry" id="clearentry" value="clearentry">CE</button>
+                <button class="operator clear" id="clear" value="clear" onclick="monitorClear()">C</button>
+                <button class="operator backspace" id="backspace" value="backspace" onclick="clickBackspace()">&lt;ㅡ</button>
+                <button class="operator division" id="division" value="/" onclick="clickNumber(this.value)">/</button>
             </div>
             <div class="buttons-two">
-                <button class="seven" id="seven" value="7" onclick="clickNumber(this.value)">7</button>
-                <button class="eight" id="eight" value="8" onclick="clickNumber(this.value)">8</button>
-                <button class="nine" id="nine" value="9" onclick="clickNumber(this.value)">9</button>
-                <button class="multiplication" id="multiplication" value="*" onclick="clickNumber(this.value)">*</button>
+                <button class="number seven" id="seven" value="7" onclick="clickNumber(this.value)">7</button>
+                <button class="number eight" id="eight" value="8" onclick="clickNumber(this.value)">8</button>
+                <button class="number nine" id="nine" value="9" onclick="clickNumber(this.value)">9</button>
+                <button class="operator multiplication" id="multiplication" value="*" onclick="clickNumber(this.value)">*</button>
             </div>
             <div class="buttons-three">
-                <button class="four" id="four" value="4" onclick="clickNumber(this.value)">4</button>
-                <button class="five" id="five" value="5" onclick="clickNumber(this.value)">5</button>
-                <button class="six" id="six" value="6" onclick="clickNumber(this.value)">6</button>
-                <button class="subtraction" id="subtraction" value="-" onclick="clickNumber(this.value)">-</button>
+                <button class="number four" id="four" value="4" onclick="clickNumber(this.value)">4</button>
+                <button class="number five" id="five" value="5" onclick="clickNumber(this.value)">5</button>
+                <button class="number six" id="six" value="6" onclick="clickNumber(this.value)">6</button>
+                <button class="number subtraction" id="subtraction" value="-" onclick="clickNumber(this.value)">-</button>
             </div>
             <div class="buttons-four">
-                <button class="one" id="one" value="1" onclick="clickNumber(this.value)">1</button>
-                <button class="two" id="two" value="2" onclick="clickNumber(this.value)">2</button>
-                <button class="three" id="three" value="3" onclick="clickNumber(this.value)">3</button>
-                <button class="addition" id="addition" value="+" onclick="clickNumber(this.value)">+</button>
+                <button class="number one" id="one" value="1" onclick="clickNumber(this.value)">1</button>
+                <button class="number two" id="two" value="2" onclick="clickNumber(this.value)">2</button>
+                <button class="number three" id="three" value="3" onclick="clickNumber(this.value)">3</button>
+                <button class="operator addition" id="addition" value="+" onclick="clickNumber(this.value)">+</button>
             </div>
             <div class="buttons-five">
                 <button class="" id="" value=""></button>
-                <button class="zero" id="zero" value="0" onclick="clickNumber(this.value)">0</button>
-                <button class="point" id="point" value="." onclick="clickNumber(this.value)">.</button>
-                <button class="equals" id="equals" value="equals" onclick="clickEquals()">=</button>
+                <button class="number zero" id="zero" value="0" onclick="clickNumber(this.value)">0</button>
+                <button class="operator point" id="point" value="." onclick="clickNumber(this.value)">.</button>
+                <button class="operator equals" id="equals" value="equals" onclick="clickEquals()">=</button>
             </div>
         </div>
     </div>
@@ -88,6 +88,7 @@ function monitorClear() {
 }
 
 function clickEquals() {
+    debugger
     const monitor = document.getElementById('monitor')
     let monitorSplitPlus
     let monitorSplitTimes
@@ -109,8 +110,8 @@ function clickEquals() {
                     calculatingTimes = Number(calculatingTimes)*Number(monitorSplitTimes[n])
                 } else {
                     monitorSplitTimes[n] = monitorSplitTimes[n].replace(/\//g,"")
-                    monitorSplitTimes[n] = 1/Number(monitorSplitTimes[n])
-                    calculatingTimes = Number(caculatingTimes)*Number(monitorSplitTimes[n])
+                    monitorSplitTimes[n] = (1/Number(monitorSplitTimes[n])).toFixed(10)
+                    calculatingTimes = (Number(calculatingTimes)*Number(monitorSplitTimes[n])).toFixed(10)
                 }
                 
             }
