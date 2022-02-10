@@ -18,7 +18,7 @@
             <div class="buttons-one">
                 <button class="clearentry" id="clearentry" value="clearentry">CE</button>
                 <button class="clear" id="clear" value="clear" onclick="monitorClear()">C</button>
-                <button class="backspace" id="backspace" value="backspace">&lt;ㅡ</button>
+                <button class="backspace" id="backspace" value="backspace" onclick="clickBackspace()">&lt;ㅡ</button>
                 <button class="division" id="division" value="/" onclick="clickNumber(this.value)">/</button>
             </div>
             <div class="buttons-two">
@@ -50,6 +50,26 @@
 
 </body>
 <script>
+window.addEventListener("keydown", (e) => {
+    const key = e.key
+    console.log(key)
+    if(!isNaN(key) || key == "." || key=="+"||key=="-"||key=="*"||key=="/"){
+        clickNumber(key)
+     }else if(key=="Backspace"){
+        clickBackspace() 
+    }else if (key == "Enter"){
+        clickEquals()
+    }else if (key == "Escape"){
+        monitorClear()
+    }
+})
+function clickBackspace() {
+    const monitor = document.getElementById('monitor')
+    let monitorText = monitor.innerText
+    monitorText = monitorText.slice(0, -1)
+    monitor.innerText = monitorText
+}
+
 function clickNumber(nValue) {
     const monitor = document.getElementById('monitor')
     let monitorText  = monitor.innerText
@@ -68,7 +88,6 @@ function monitorClear() {
 }
 
 function clickEquals() {
-    debugger
     const monitor = document.getElementById('monitor')
     let monitorSplitPlus
     let monitorSplitTimes
@@ -77,12 +96,11 @@ function clickEquals() {
     let calculatingTimes = 1
     let monitorTextTranc = monitorText.replace(/-/g,"+-")
     monitorSplitPlus = monitorTextTranc.toString().split("+")
-
     console.log(monitorSplitPlus)
+    monitorText = 0
     for(var i = 0; i < monitorSplitPlus.length; i++){
         if(!isNaN(monitorSplitPlus[i])){
-            calculatingNo = Number(calculatingNo) + Number(monitorSplitPlus[i]) 
-            
+            monitorText =  Number(monitorText) +  Number(monitorSplitPlus[i])
         } else {
             monitorTextTranc = monitorSplitPlus[i].replace(/\//g, "*/")
             monitorSplitTimes = monitorTextTranc.toString().split("*")
@@ -94,12 +112,14 @@ function clickEquals() {
                     monitorSplitTimes[n] = 1/Number(monitorSplitTimes[n])
                     calculatingTimes = Number(caculatingTimes)*Number(monitorSplitTimes[n])
                 }
+                
             }
-            
+            monitorText = Number(monitorText) + Number(calculatingTimes)
+            calculatingTimes = 1
         }
-       
+        
     }
-    monitor.innerText = calculatingNo + calculatingTimes
+    monitor.innerText = monitorText
 }
 
 
@@ -123,4 +143,4 @@ function clickEquals() {
         // }
 
 </script>
-</html>
+</html
