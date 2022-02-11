@@ -1,21 +1,79 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue';
+
+const items = ref([
+  '첫번째 목록',
+  '두번째 목록'
+])
+
+function add() {
+  const todoText = document.getElementById('todo-input').value
+
+  items.value.push(todoText)
+}
+function remove(itemsIndex) {
+  console.log('remove')
+  items.value.splice(itemsIndex, 1)
+  }
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <div class="todo-list">
+    <h1 class="todo-list-h1">Todo List</h1>
+    <div class="todo-list-add">
+      <input 
+        type="text" 
+        name="" 
+        id="todo-input" 
+        placeholder="add Items"
+      >
+      <button type="button" @click="add()">추가</button>
+    </div>
+    <div class="todo-items">
+      <div 
+        v-for="(item, index) in items" 
+        :key="index"
+      >
+        <div>{{index + 1}} - {{item}}</div>
+        <button 
+          type="button" 
+          @click="remove(index)"
+        >
+          삭제
+        </button>
+      </div>
+    </div>
+</div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
+.todo-list {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
+
+.todo-list .todo-list-h1 {
+  font-size: 24px;
+}
+
+.todo-list .todo-list-add {
+  display: flex;
+}
+
+.todo-list .todo-items {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+
+}
+.todo-list .todo-items > * {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+}
+
 </style>

@@ -9,7 +9,7 @@ const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>{{ "뷰를 설치했습니다." }}</h1>
 
   <p>
     Recommended IDE setup:
