@@ -1,4 +1,10 @@
-html, body {
-    padding: 0;
-    margin: 0;
+@import './font.css';
+@import './tailwindw.css';
+
+html, body, #app {
+    @apply m-0 p-0 w-full h-full font-sans;
+}
+
+input, textarea, select {
+    @apply font-sans;
 }
